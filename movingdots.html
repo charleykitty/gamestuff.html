@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <script src="p5.min.js"></script>
+  </head>
+  <body>
+    <button onclick = "faster()">faster</button>
+    <button onclick = "slower()">slower</button>
+    <script>
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var r;
+    var g;
+    var b;
+    var posX = w/2;
+    var posY = h/2;
+    var posX1 = w/2;
+    var posY1 = h/2;
+    var low = -10;
+    var high = 10;
+    function faster() {
+      low += -10;
+      high += 10;
+    }
+    function slower() {
+      low += 10;
+      high += -10;
+    }
+      function setup() {
+        createCanvas(w,h);
+        
+      }
+      function draw() {
+        r = random(256);
+        g = random(256);
+        b = random(256);
+        //background(color(225,105,180));
+        //ellipse value 1 = starting pos of X
+        //ellipse value 2 = starting pos of Y
+        //ellipse value 3 = radius of X
+        //ellipse value 4 = radius of Y
+        strokeWeight(1);
+        fill(color(r,g,b));
+        var randX = random(low,high);
+        var randY = random(low,high);
+        var randX1 = random(low,high);
+        var randY1 = random(low,high);
+        posX += randX;
+        posY += randY;
+        ellipse(posX,posY,10,10);
+        strokeWeight(1);
+        fill(color(r,g,b));
+        rect(posX1,posY1,10,10);
+        posX1 += randX1;
+        posY1 += randY1;
+     
+      if ((posX < 10) || (posX > w-10) || (posY < 10) || (posY > h-10)) {
+        posX = w/2;
+        posY = h/2;
+      }
+      if ((posX1 < 10) || (posX1 > w-10) || (posY1 < 10) || (posY1 > h-10)) {
+        posX1 = w/2;
+        posY1 = h/2;
+      } 
+      }
+    </script>
+  </body>
+</html>

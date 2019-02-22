@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <script src="p5.min.js"></script>
+    <style> body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      //makes the screen stay at one position
+      </style>
+    
+  </head>
+  <body>
+    <script>
+    var w = window.innerWidth;
+    //width
+    var h = window.innerHeight;
+    //height
+    var posX = w/2;
+    var posY = h/2;
+    //makes the position start in the middle
+      function setup() {
+        createCanvas(w,h);
+        //makes the spot of the draw function
+      }
+      function draw() {
+        background(255);
+        fill(color('#a7d694'));
+        //color of rect
+        strokeWeight(0);
+        //no outer line
+        rect(posX,posY,100,100,20);
+if ((keyIsDown(38)) && (posY > 0)) {
+          posY -=10;
+          //up
+        }
+if ((keyIsDown(37)) && (posX > 0)){
+          posX -=10;
+          //left
+        }
+if ((keyIsDown(40)) && (posY < h -100)){
+          posY +=10;
+          //down
+        }
+if ((keyIsDown(39)) && (posX < w -100)){
+          posX +=10;
+          //right
+        }
+      }
+      function keyPressed() {
+        
+      }
+    </script>
+  </body>
+</html>
+
