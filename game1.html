@@ -15,6 +15,8 @@
       var h = window.innerHeight;
       var ball = new ball();
       var ball2 = new ball2();
+      var d;
+      
       //creating a new object globally
       function setup() {
         createCanvas(w,h);
@@ -25,6 +27,7 @@
         ball.move();
         ball2.show();
         ball2.move();
+        ball2.kill();
       }
       function ball() {
         this.x = 100;
@@ -70,8 +73,14 @@
         if ((keyIsDown(75)) && (this.y < h -100)) { //down
           this.y += 10;
         }
-        }
       }
+      this.kill = function() {
+        d = dist(this.x,this.y,ball.x,ball.y);
+        if(d < 50) {
+          noLoop();
+          window.alert("you loose");
+          }
+        } }
     </script>
   </body>
 </html>
